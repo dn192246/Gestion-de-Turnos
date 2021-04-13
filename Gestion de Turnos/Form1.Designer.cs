@@ -60,6 +60,7 @@ namespace Gestion_de_Turnos
             this.btnpantalla.TabIndex = 3;
             this.btnpantalla.Text = "Mostrar turnos";
             this.btnpantalla.UseVisualStyleBackColor = false;
+            this.btnpantalla.Click += new System.EventHandler(this.btnpantalla_Click);
             // 
             // btnlista
             // 

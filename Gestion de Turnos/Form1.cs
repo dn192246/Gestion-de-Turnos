@@ -16,5 +16,11 @@ namespace Gestion_de_Turnos
         {
             InitializeComponent();
         }
+
+        private void btnpantalla_Click(object sender, EventArgs e)
+        {
+            pantallaTurnos turnos = new pantallaTurnos();
+            turnos.Show();
+        }
     }
 }
