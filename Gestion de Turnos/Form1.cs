@@ -22,5 +22,11 @@ namespace Gestion_de_Turnos
             pantallaTurnos turnos = new pantallaTurnos();
             turnos.Show();
         }
+
+        private void btnlista_Click(object sender, EventArgs e)
+        {
+            tickets T = new tickets();
+            T.Show();
+        }
     }
 }

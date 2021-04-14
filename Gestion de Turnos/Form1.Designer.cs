@@ -29,22 +29,12 @@ namespace Gestion_de_Turnos
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnpantalla = new System.Windows.Forms.Button();
             this.btnlista = new System.Windows.Forms.Button();
             this.btncrear = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Gestion_de_Turnos.Properties.Resources.intro_image;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(348, 113);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnpantalla
             // 
@@ -76,6 +66,7 @@ namespace Gestion_de_Turnos
             this.btnlista.TabIndex = 4;
             this.btnlista.Text = "Gestionar Tickets";
             this.btnlista.UseVisualStyleBackColor = false;
+            this.btnlista.Click += new System.EventHandler(this.btnlista_Click);
             // 
             // btncrear
             // 
@@ -92,6 +83,16 @@ namespace Gestion_de_Turnos
             this.btncrear.Text = "Crear Tickets";
             this.btncrear.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gestion_de_Turnos.Properties.Resources.intro_image;
+            this.pictureBox1.Location = new System.Drawing.Point(139, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(348, 113);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -103,7 +104,7 @@ namespace Gestion_de_Turnos
             this.Controls.Add(this.btnpantalla);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gestión de Turnos";
