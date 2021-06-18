@@ -17,6 +17,7 @@ namespace Gestion_de_Turnos
         {
             InitializeComponent();
             actualizarGrid();
+            rbnomiembro.Checked=true;
         }
 
         private void btngenerar_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace Gestion_de_Turnos
                 "UID = db_a74adc_ads2021_admin; password = 2021ads01");
             con.Open();
             SqlDataAdapter da = new SqlDataAdapter("select peso as Prioridad, " +
-                "id as Turno from turno order by peso asc", con);
+                "id as Turno from turno where estado=0 order by peso asc", con);
             DataSet ds = new DataSet();
             da.Fill(ds, "turnos");
             dgvTurnos.DataSource = ds.Tables["turnos"].DefaultView;

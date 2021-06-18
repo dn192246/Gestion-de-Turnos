@@ -19,8 +19,8 @@ namespace Gestion_de_Turnos
         {
             string cadena = source + db + user + pass;
             SqlConnection conx = new SqlConnection(cadena);
-            string com = "insert into turno(peso) " +
-                "values (@peso);";
+            string com = "insert into turno(peso, estado) " +
+                "values (@peso,0);";
             conx.Open();
             SqlCommand cmd = new SqlCommand(com, conx);
 
