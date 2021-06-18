@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="GestionTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionTickets.Designer.cs">
+      <DependentUpon>GestionTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Heap.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,8 +74,12 @@
     <Compile Include="tickets.Designer.cs">
       <DependentUpon>tickets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turno.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionTickets.resx">
+      <DependentUpon>GestionTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pantallaTurnos.resx">
       <DependentUpon>pantallaTurnos.cs</DependentUpon>

@@ -25,6 +25,11 @@ namespace Gestion_de_Turnos
 
         private void btnlista_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btncrear_Click(object sender, EventArgs e)
+        {
             tickets T = new tickets();
             T.Show();
         }

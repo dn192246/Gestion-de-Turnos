@@ -82,6 +82,7 @@ namespace Gestion_de_Turnos
             this.btncrear.TabIndex = 4;
             this.btncrear.Text = "Crear Tickets";
             this.btncrear.UseVisualStyleBackColor = false;
+            this.btncrear.Click += new System.EventHandler(this.btncrear_Click);
             // 
             // pictureBox1
             // 
