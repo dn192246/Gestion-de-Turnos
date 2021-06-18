@@ -42,5 +42,45 @@ namespace Gestion_de_Turnos
             cmd.ExecuteNonQuery();
             conx.Close();
         }
+
+        public string obtenerTurnoPróximo()
+        {
+            string cadena = source + db + user + pass;
+            SqlConnection conx = new SqlConnection(cadena);
+            string com = "select top 1 * from turno where estado=0 order by peso asc";
+            SqlDataReader rd;
+            conx.Open();
+            SqlCommand cmd = new SqlCommand(com, conx);
+
+            rd = cmd.ExecuteReader();
+
+            if (rd.Read())
+            {
+                string respuesta = "";
+                int id = int.Parse(rd[0].ToString());
+
+                if (rd[1].ToString() == "1")
+                {
+                    respuesta += "CP";
+                }
+                if (rd[1].ToString() == "2")
+                {
+                    respuesta += "CM";
+                }
+                if (rd[1].ToString() == "3")
+                {
+                    respuesta += "CN";
+                }
+
+                respuesta += id.ToString();
+                conx.Close();
+                return respuesta;
+            }
+            else
+            {
+                conx.Close();
+                return "";
+            }
+        }
     }
 }

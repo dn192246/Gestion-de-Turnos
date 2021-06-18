@@ -29,7 +29,8 @@ namespace Gestion_de_Turnos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.rbmiembro = new System.Windows.Forms.RadioButton();
             this.rbprioritario = new System.Windows.Forms.RadioButton();
@@ -38,6 +39,8 @@ namespace Gestion_de_Turnos
             this.dgvTurnos = new System.Windows.Forms.DataGridView();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,14 +108,14 @@ namespace Gestion_de_Turnos
             this.dgvTurnos.AllowUserToDeleteRows = false;
             this.dgvTurnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTurnos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTurnos.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTurnos.EnableHeadersVisualStyles = false;
             this.dgvTurnos.Location = new System.Drawing.Point(369, 13);
             this.dgvTurnos.MultiSelect = false;
@@ -150,6 +153,12 @@ namespace Gestion_de_Turnos
             this.label2.TabIndex = 9;
             this.label2.Text = "Siguiente →";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 3500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // tickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -165,7 +174,9 @@ namespace Gestion_de_Turnos
             this.Controls.Add(this.rbmiembro);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "tickets";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creación de Tickets";
@@ -185,5 +196,7 @@ namespace Gestion_de_Turnos
         private System.Windows.Forms.DataGridView dgvTurnos;
         private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.Label label2;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
