@@ -24,6 +24,7 @@ namespace Gestion_de_Turnos
         {
             if (sizeOfTree == 0)
                 return null;
+
             else return arr[1];
         }
 
