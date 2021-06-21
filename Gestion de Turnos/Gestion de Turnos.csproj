@@ -135,5 +135,10 @@
   <ItemGroup>
     <None Include="Resources\flecha.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\turno.bmp" />
+    <Content Include="Resources\Turno.wav" />
+    <Content Include="Turno.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

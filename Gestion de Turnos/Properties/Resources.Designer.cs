@@ -79,5 +79,14 @@ namespace Gestion_de_Turnos.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Turno {
+            get {
+                return ResourceManager.GetStream("Turno", resourceCulture);
+            }
+        }
     }
 }

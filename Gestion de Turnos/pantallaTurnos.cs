@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Media;
 
 namespace Gestion_de_Turnos
 {
@@ -91,6 +92,12 @@ namespace Gestion_de_Turnos
         private void btnCerrar_MouseDown(object sender, MouseEventArgs e)
         {
             btnCerrar.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        void notificacion() 
+        { 
+            SoundPlayer player = new SoundPlayer(Properties.Resources.Turno);
+            player.Play();
         }
     }
 }
