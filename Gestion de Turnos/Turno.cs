@@ -10,6 +10,6 @@ namespace Gestion_de_Turnos
     {
         public int peso;
         public int numero;
-        public int ident;
+        public string nombre;
     }
 }

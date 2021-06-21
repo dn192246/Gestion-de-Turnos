@@ -43,7 +43,7 @@ namespace Gestion_de_Turnos
             conx.Close();
         }
 
-        public string obtenerTurnoPróximo()
+        public Turno obtenerTurnoPróximo()
         {
             string cadena = source + db + user + pass;
             SqlConnection conx = new SqlConnection(cadena);
@@ -56,31 +56,38 @@ namespace Gestion_de_Turnos
 
             if (rd.Read())
             {
-                string respuesta = "";
+                Turno turno = new Turno();
                 int id = int.Parse(rd[0].ToString());
 
-                if (rd[1].ToString() == "1")
-                {
-                    respuesta += "CP";
-                }
-                if (rd[1].ToString() == "2")
-                {
-                    respuesta += "CM";
-                }
-                if (rd[1].ToString() == "3")
-                {
-                    respuesta += "CN";
-                }
+                turno.peso = int.Parse(rd[1].ToString());              
 
-                respuesta += id.ToString();
+                turno.numero= int.Parse(id.ToString());
                 conx.Close();
-                return respuesta;
+                return turno;
             }
             else
             {
                 conx.Close();
-                return "";
+                return null;
             }
+        }
+
+        public void llamarCliente(int mesa, int idu)
+        {
+            string cadena = source + db + user + pass;
+            SqlConnection conx = new SqlConnection(cadena);
+            string com = "update turno set estado=1, mesa=@mesa where id=@id;";
+            conx.Open();
+            SqlCommand cmd = new SqlCommand(com, conx);
+
+            cmd.Parameters.Add(new SqlParameter("@mesa", SqlDbType.Int));
+            cmd.Parameters["@mesa"].Value = mesa;
+
+            cmd.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+            cmd.Parameters["@id"].Value = idu;
+
+            cmd.ExecuteNonQuery();
+            conx.Close();
         }
     }
 }
