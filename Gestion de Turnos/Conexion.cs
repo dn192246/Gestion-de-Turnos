@@ -76,7 +76,7 @@ namespace Gestion_de_Turnos
         {
             string cadena = source + db + user + pass;
             SqlConnection conx = new SqlConnection(cadena);
-            string com = "update turno set estado=1, mesa=@mesa where id=@id;";
+            string com = "update turno set estado=2, mesa=@mesa where id=@id;";
             conx.Open();
             SqlCommand cmd = new SqlCommand(com, conx);
 

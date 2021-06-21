@@ -20,6 +20,7 @@ namespace Gestion_de_Turnos
             actualizar();
 
             btnGuardar.Enabled = true;
+            btnLlamar.Enabled = false;
             btnModificar.Enabled = false;
             txtMesa.Enabled = true;
         }
@@ -27,17 +28,24 @@ namespace Gestion_de_Turnos
         Heap cola = new Heap();
         Turno turno = null;
 
+
         void actualizar()
         {
             Conexion cn = new Conexion();
 
             string cadena = cn.source + cn.db + cn.user + cn.pass;
-            SqlConnection conx = new SqlConnection(cadena);
 
-            SqlConnection conx1 = new SqlConnection(cadena);
+            SqlConnection conx = new SqlConnection(cadena);
+            SqlConnection conx2 = new SqlConnection(cadena);
+            SqlConnection conx3 = new SqlConnection(cadena);
 
             string com1 = "select * from turno where estado=0";
             string com2 = "update turno set estado=1 where id=@id";
+            string com3 = "select * from turno;";
+
+
+            //Se crea el lector para realizar la búsqueda de tickets de clientes
+            //no colocados en la cola de prioridad
 
             SqlDataReader rd;
             conx.Open();
@@ -49,27 +57,36 @@ namespace Gestion_de_Turnos
             while (rd.Read())
             {
                 Turno turno = new Turno();
-                int id = int.Parse(rd[0].ToString());
 
                 turno.peso = int.Parse(rd[1].ToString());
+                turno.numero = int.Parse(rd[0].ToString());
 
-                turno.numero = int.Parse(id.ToString());
-                
+                //Cada turno se añade a la cola de prioridad
+                cola.InsertElementInHeap(turno);
 
-                SqlCommand cmd2 = new SqlCommand(com2, conx1);
-                conx1.Open();
+                SqlCommand cmd2 = new SqlCommand(com2, conx2);
+                conx2.Open();
+
+
+                //Se cambia el estado del turno en la BD
+                //para que no vuelva a ser agregado a la cola
 
                 cmd2.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
-                cmd2.Parameters["@id"].Value = id;
+                cmd2.Parameters["@id"].Value = turno.numero;
 
                 cmd2.ExecuteNonQuery();
-
-                cola.InsertElementInHeap(turno);
-                conx1.Close();               
+               
+                conx2.Close();               
             }
             conx.Close();
 
-            Turno turnoMuestra = cola.PeekOfHeap();
+            Turno turnoMuestra=null ;
+
+            if (cola != null)
+            {
+                turnoMuestra = cola.PeekOfHeap();
+            }
+            
             string next = "";
 
             if (turnoMuestra != null)
@@ -100,6 +117,22 @@ namespace Gestion_de_Turnos
             {
                 lbTurno.Text = next;
             }
+
+            SqlCommand cmd3 = new SqlCommand(com3, conx3);
+            conx3.Open();
+            SqlDataReader rd3 = cmd3.ExecuteReader();
+            
+            if (rd3.Read())
+            {
+                conx3.Close();
+            }
+            else
+            {
+                cola = null;
+                cola = new Heap();
+                conx3.Close();
+                lbTurno.Text = "-En Espera-";
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -120,8 +153,9 @@ namespace Gestion_de_Turnos
                 Conexion cnn = new Conexion();
                 try
                 {
-                    cnn.llamarCliente(int.Parse(txtMesa.Text),
-                    turno.numero);
+                    Turno temp = cola.PeekOfHeap();
+                    cola.extractHeadOfHeap();
+                    cnn.llamarCliente(int.Parse(txtMesa.Text), temp.numero);
                 }
                 catch
                 {
@@ -134,12 +168,14 @@ namespace Gestion_de_Turnos
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             btnGuardar.Enabled = false;
+            btnLlamar.Enabled = true;
             btnModificar.Enabled = true;
             txtMesa.Enabled = false;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            btnLlamar.Enabled = false;
             btnGuardar.Enabled = true;
             btnModificar.Enabled = false;
             txtMesa.Enabled = true;
