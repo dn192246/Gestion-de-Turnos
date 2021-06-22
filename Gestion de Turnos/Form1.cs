@@ -46,5 +46,16 @@ namespace Gestion_de_Turnos
 			Usuarios usu = new Usuarios();
 			usu.Show();
 		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Sesion ses = new Sesion();
+			ses.Show();
+		}
 	}
 }

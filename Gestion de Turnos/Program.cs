@@ -16,7 +16,9 @@ namespace Gestion_de_Turnos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-        }
+			var main_form = new Sesion();
+			main_form.Show();
+			Application.Run();
+		}
     }
 }

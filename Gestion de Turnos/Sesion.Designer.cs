@@ -28,23 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnInicio = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtContra = new System.Windows.Forms.TextBox();
+			this.txtUsuario = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
-			// button1
+			// btnInicio
 			// 
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(159, 305);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(122, 42);
-			this.button1.TabIndex = 17;
-			this.button1.Text = "Iniciar Sesión";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnInicio.Location = new System.Drawing.Point(159, 305);
+			this.btnInicio.Name = "btnInicio";
+			this.btnInicio.Size = new System.Drawing.Size(122, 42);
+			this.btnInicio.TabIndex = 17;
+			this.btnInicio.Text = "Iniciar Sesión";
+			this.btnInicio.UseVisualStyleBackColor = true;
+			this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
 			// 
 			// label3
 			// 
@@ -74,34 +75,36 @@
 			this.label1.TabIndex = 14;
 			this.label1.Text = "Usuario";
 			// 
-			// textBox2
+			// txtContra
 			// 
-			this.textBox2.Location = new System.Drawing.Point(170, 220);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.PasswordChar = '*';
-			this.textBox2.Size = new System.Drawing.Size(186, 22);
-			this.textBox2.TabIndex = 13;
+			this.txtContra.Location = new System.Drawing.Point(170, 220);
+			this.txtContra.Name = "txtContra";
+			this.txtContra.PasswordChar = '*';
+			this.txtContra.Size = new System.Drawing.Size(186, 22);
+			this.txtContra.TabIndex = 13;
 			// 
-			// textBox1
+			// txtUsuario
 			// 
-			this.textBox1.Location = new System.Drawing.Point(170, 177);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(186, 22);
-			this.textBox1.TabIndex = 12;
+			this.txtUsuario.Location = new System.Drawing.Point(170, 177);
+			this.txtUsuario.Name = "txtUsuario";
+			this.txtUsuario.Size = new System.Drawing.Size(186, 22);
+			this.txtUsuario.TabIndex = 12;
 			// 
 			// Sesion
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(451, 450);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnInicio);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtContra);
+			this.Controls.Add(this.txtUsuario);
 			this.Name = "Sesion";
 			this.Text = "Sesion";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Sesion_FormClosing);
+			this.Load += new System.EventHandler(this.Sesion_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -109,11 +112,11 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnInicio;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox txtContra;
+		private System.Windows.Forms.TextBox txtUsuario;
 	}
 }
