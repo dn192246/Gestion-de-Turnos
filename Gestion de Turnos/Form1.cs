@@ -34,5 +34,11 @@ namespace Gestion_de_Turnos
             tickets T = new tickets();
             T.Show();
         }
-    }
+
+		private void btnClientes_Click(object sender, EventArgs e)
+		{
+			Clientes cl = new Clientes();
+			cl.Show();
+		}
+	}
 }

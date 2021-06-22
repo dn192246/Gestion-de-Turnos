@@ -15,7 +15,27 @@ namespace Gestion_de_Turnos
             public string db = "Initial Catalog=db_a74adc_ads2021;";
             public string source = "Data source= SQL5068.site4now.net;";
 
-        public void agregarTurno(int peso)
+		public string CadenaConexion()
+		{
+			SqlConnection conexion = new SqlConnection();
+
+			SqlConnectionStringBuilder cadena = new SqlConnectionStringBuilder();
+
+			cadena.UserID = Properties.Settings.Default.loginid;
+
+			cadena.Password = Properties.Settings.Default.pass;
+
+			cadena.InitialCatalog = Properties.Settings.Default.bdd;
+
+			cadena.DataSource = Properties.Settings.Default.servidor;
+
+			cadena.ConnectTimeout = 30;
+
+			conexion.ConnectionString = cadena.ConnectionString;
+			return conexion.ConnectionString;
+		}
+
+		public void agregarTurno(int peso)
         {
             string cadena = source + db + user + pass;
             SqlConnection conx = new SqlConnection(cadena);
