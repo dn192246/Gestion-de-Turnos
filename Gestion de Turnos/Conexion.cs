@@ -8,6 +8,8 @@ using System.Data;
 
 namespace Gestion_de_Turnos
 {
+	
+
     class Conexion
     {      
             public string user = "user id=db_a74adc_ads2021_admin;";

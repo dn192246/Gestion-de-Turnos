@@ -51,6 +51,7 @@ namespace Gestion_de_Turnos
 					}
 					else
 					{
+						Program.nivel = Int32.Parse(drd[3].ToString());
 						MessageBox.Show("Bienvenido " + drd[1].ToString(), "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						drd.Close();
 						con.Close();

@@ -37,19 +37,35 @@ namespace Gestion_de_Turnos
 
 		private void btnClientes_Click(object sender, EventArgs e)
 		{
-			Clientes cl = new Clientes();
-			cl.Show();
+			if (Program.nivel == 2)
+			{
+				MessageBox.Show("No tiene los permisos suficientes para acceder a esta función", "No autorizado", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+				return;
+			}
+			else
+			{
+				Clientes cl = new Clientes();
+				cl.Show();
+			}				
 		}
 
 		private void btnUsuarios_Click(object sender, EventArgs e)
 		{
-			Usuarios usu = new Usuarios();
-			usu.Show();
+			if (Program.nivel == 2)
+			{
+				MessageBox.Show("No tiene los permisos suficientes para acceder a esta función", "No autorizado", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+				return;
+			}
+			else
+			{
+				Usuarios usu = new Usuarios();
+				usu.Show();
+			}
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-
+			//MessageBox.Show(Program.nivel.ToString());
 		}
 
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)

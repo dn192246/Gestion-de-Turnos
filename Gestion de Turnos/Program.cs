@@ -8,10 +8,12 @@ namespace Gestion_de_Turnos
 {
     static class Program
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
-        [STAThread]
+
+		public static int nivel = 0;
+		/// <summary>
+		/// Punto de entrada principal para la aplicación.
+		/// </summary>
+		[STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
