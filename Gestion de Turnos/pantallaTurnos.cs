@@ -16,10 +16,13 @@ namespace Gestion_de_Turnos
     {
         Turno turno = new Turno();
         List<Turno> lista = new List<Turno>();
+        string[] turnos = new string[5];
+        string[] mesa = new string[5];
 
         public pantallaTurnos()
         {
             InitializeComponent();
+
             c1.Text = "";
             c2.Text = "";
             c3.Text = "";
@@ -31,19 +34,128 @@ namespace Gestion_de_Turnos
             v3.Text = "";
             v4.Text = "";
             v5.Text = "";
+
+            actualizarTabla();
         }
 
-        private void actualizar()
+        private void actualizarTabla()
         {
             try
             {
-                //Para Línea 1
+                //Para Línea 1            
+                if (lista[0].peso == 1)
+                {
+                    turnos[0] = "CP";
+                }
+
+                if (lista[0].peso == 2)
+                {
+                    turnos[0] = "CM";
+                }
+
+                if (lista[0].peso == 3)
+                {
+                    turnos[0] = "CN";
+                }
+                c1.Text = turnos[0] + lista[0].numero;
+                v1.Text = lista[0].mesa.ToString();
+
+
+                //Para Línea 2          
                 if (lista[1].peso == 1)
                 {
-
+                    turnos[1] = "CP";
                 }
+
+                if (lista[1].peso == 2)
+                {
+                    turnos[1] = "CM";
+                }
+
+                if (lista[1].peso == 3)
+                {
+                    turnos[1] = "CN";
+                }
+                c2.Text = turnos[1] + lista[1].numero;
+                v2.Text = lista[1].mesa.ToString();
+
+                //Para Línea 3            
+                if (lista[2].peso == 1)
+                {
+                    turnos[2] = "CP";
+                }
+
+                if (lista[2].peso == 2)
+                {
+                    turnos[2] = "CM";
+                }
+
+                if (lista[2].peso == 3)
+                {
+                    turnos[2] = "CN";
+                }
+                c3.Text = turnos[2] + lista[2].numero;
+                v3.Text = lista[2].mesa.ToString();
+
+                //Para Línea 4          
+                if (lista[3].peso == 1)
+                {
+                    turnos[3] = "CP";
+                }
+
+                if (lista[3].peso == 2)
+                {
+                    turnos[3] = "CM";
+                }
+
+                if (lista[3].peso == 3)
+                {
+                    turnos[3] = "CN";
+                }
+                c4.Text = turnos[3] + lista[3].numero;
+                v4.Text = lista[3].mesa.ToString();
+
+                //Para Línea 5            
+                if (lista[4].peso == 1)
+                {
+                    turnos[4] = "CP";
+                }
+
+                if (lista[4].peso == 2)
+                {
+                    turnos[4] = "CM";
+                }
+
+                if (lista[4].peso == 3)
+                {
+                    turnos[4] = "CN";
+                }
+                c5.Text = turnos[4] + lista[4].numero;
+                v5.Text = lista[4].mesa.ToString();
             }
             catch
+            {
+
+            } 
+        }
+
+        private void actualizarDatos()
+        {
+            Conexion cn = new Conexion();
+
+            Turno t = cn.listarTurnos();
+
+            if (t!=null)
+            {
+                lista.Reverse();
+                lista.Add(t);
+                lista.Reverse();
+
+                notificacion();
+                actualizarTabla();
+            }
+
+            else
             {
 
             }
@@ -83,6 +195,11 @@ namespace Gestion_de_Turnos
         { 
             SoundPlayer player = new SoundPlayer(Properties.Resources.Turno);
             player.Play();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            actualizarDatos();
         }
     }
 }

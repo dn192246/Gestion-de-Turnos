@@ -11,5 +11,6 @@ namespace Gestion_de_Turnos
         public int peso;
         public int numero;
         public string nombre;
+        public int mesa;
     }
 }

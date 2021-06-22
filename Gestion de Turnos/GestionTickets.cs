@@ -26,8 +26,6 @@ namespace Gestion_de_Turnos
         }
 
         Heap cola = new Heap();
-        Turno turno = null;
-
 
         void actualizar()
         {

@@ -42,35 +42,47 @@ namespace Gestion_de_Turnos
             cmd.ExecuteNonQuery();
             conx.Close();
         }
+        
+        public Turno listarTurnos()
+        {
+            string cadena = source + db + user + pass;
+            SqlConnection conx = new SqlConnection(cadena);
+            SqlConnection conx2 = new SqlConnection(cadena);
 
-        //public Turno obtenerTurnoPróximo()
-        //{
-        //    string cadena = source + db + user + pass;
-        //    SqlConnection conx = new SqlConnection(cadena);
-        //    string com = "select top 1 * from turno where estado=0 order by peso asc";
-        //    SqlDataReader rd;
-        //    conx.Open();
-        //    SqlCommand cmd = new SqlCommand(com, conx);
+            string com = "select top 1 * from turno where estado=2";
+            string com2 = "update turno set estado = 3 where id=@id;";
 
-        //    rd = cmd.ExecuteReader();
+            conx.Open();
 
-        //    if (rd.Read())
-        //    {
-        //        Turno turno = new Turno();
-        //        int id = int.Parse(rd[0].ToString());
+            SqlCommand cmd = new SqlCommand(com, conx);
+            SqlCommand cmd2 = new SqlCommand(com2, conx2);
 
-        //        turno.peso = int.Parse(rd[1].ToString());              
+            SqlDataReader rd = cmd.ExecuteReader();
 
-        //        turno.numero= int.Parse(id.ToString());
-        //        conx.Close();
-        //        return turno;
-        //    }
-        //    else
-        //    {
-        //        conx.Close();
-        //        return null;
-        //    }
-        //}
+            if (rd.Read())
+            {
+                Turno turno = new Turno();
+                turno.numero = int.Parse(rd[0].ToString());
+                turno.peso = int.Parse(rd[1].ToString());
+                turno.mesa = int.Parse(rd[3].ToString());
+
+                cmd2.Parameters.AddWithValue("@id", int.Parse(turno.numero.ToString()));
+
+                conx2.Open();
+
+                cmd2.ExecuteNonQuery();
+                conx2.Close();
+
+                conx.Close();
+                return turno;             
+            }
+
+            else
+            {
+                conx.Close();
+                return null;
+            }
+        }
 
         public void llamarCliente(int mesa, int idu)
         {

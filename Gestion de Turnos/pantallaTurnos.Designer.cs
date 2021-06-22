@@ -29,6 +29,7 @@ namespace Gestion_de_Turnos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCerrar = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.v5 = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@ namespace Gestion_de_Turnos
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.c1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -241,6 +243,12 @@ namespace Gestion_de_Turnos
             this.c1.TabIndex = 4;
             this.c1.Text = "Texto1";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 3500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // pantallaTurnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -277,5 +285,6 @@ namespace Gestion_de_Turnos
         private System.Windows.Forms.Label c2;
         private System.Windows.Forms.Label v1;
         private System.Windows.Forms.Label c1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
