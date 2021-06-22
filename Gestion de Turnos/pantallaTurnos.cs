@@ -164,7 +164,7 @@ namespace Gestion_de_Turnos
             {
                 int max = lista.Count;
 
-                for(int i = 5; i <= max; i++)
+                for(int i = 5; i < max; i++)
                 {
                     lista.RemoveAt(i);
                 }
