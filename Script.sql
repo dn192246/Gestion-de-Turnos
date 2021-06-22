@@ -1,6 +1,8 @@
+drop table turno
+
 create table turno(
 id int identity(1,1) not null primary key,
-peso int not null,
+peso varchar(4) not null,
 estado int not null,
 mesa int null,
 idmiembro int null)
@@ -18,3 +20,7 @@ foreign key (idmiembro) references miembro(idmiembro)
 on delete cascade
 on update cascade
 go
+
+select * from turno
+
+update turno set estado=1, mesa=1 where id=2

@@ -43,34 +43,34 @@ namespace Gestion_de_Turnos
             conx.Close();
         }
 
-        public Turno obtenerTurnoPróximo()
-        {
-            string cadena = source + db + user + pass;
-            SqlConnection conx = new SqlConnection(cadena);
-            string com = "select top 1 * from turno where estado=0 order by peso asc";
-            SqlDataReader rd;
-            conx.Open();
-            SqlCommand cmd = new SqlCommand(com, conx);
+        //public Turno obtenerTurnoPróximo()
+        //{
+        //    string cadena = source + db + user + pass;
+        //    SqlConnection conx = new SqlConnection(cadena);
+        //    string com = "select top 1 * from turno where estado=0 order by peso asc";
+        //    SqlDataReader rd;
+        //    conx.Open();
+        //    SqlCommand cmd = new SqlCommand(com, conx);
 
-            rd = cmd.ExecuteReader();
+        //    rd = cmd.ExecuteReader();
 
-            if (rd.Read())
-            {
-                Turno turno = new Turno();
-                int id = int.Parse(rd[0].ToString());
+        //    if (rd.Read())
+        //    {
+        //        Turno turno = new Turno();
+        //        int id = int.Parse(rd[0].ToString());
 
-                turno.peso = int.Parse(rd[1].ToString());              
+        //        turno.peso = int.Parse(rd[1].ToString());              
 
-                turno.numero= int.Parse(id.ToString());
-                conx.Close();
-                return turno;
-            }
-            else
-            {
-                conx.Close();
-                return null;
-            }
-        }
+        //        turno.numero= int.Parse(id.ToString());
+        //        conx.Close();
+        //        return turno;
+        //    }
+        //    else
+        //    {
+        //        conx.Close();
+        //        return null;
+        //    }
+        //}
 
         public void llamarCliente(int mesa, int idu)
         {

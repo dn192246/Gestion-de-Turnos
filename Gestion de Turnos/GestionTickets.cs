@@ -91,20 +91,15 @@ namespace Gestion_de_Turnos
 
             if (turnoMuestra != null)
             {
+
                 if (turnoMuestra.peso == 1)
-                {
                     next += "CP";
-                }
 
                 if (turnoMuestra.peso == 2)
-                {
                     next += "CM";
-                }
 
                 if (turnoMuestra.peso == 3)
-                {
                     next += "CN";
-                }
 
                 next += turnoMuestra.numero;
             }

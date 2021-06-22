@@ -69,6 +69,7 @@ namespace Gestion_de_Turnos
                 return;
             }
 
+
             if (arr[index].peso < arr[parent].peso)
             {
                 Turno tmp = arr[index];

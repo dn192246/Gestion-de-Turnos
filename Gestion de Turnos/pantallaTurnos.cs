@@ -14,6 +14,9 @@ namespace Gestion_de_Turnos
 {
     public partial class pantallaTurnos : Form
     {
+        Turno turno = new Turno();
+        List<Turno> lista = new List<Turno>();
+
         public pantallaTurnos()
         {
             InitializeComponent();
@@ -22,46 +25,28 @@ namespace Gestion_de_Turnos
             c3.Text = "";
             c4.Text = "";
             c5.Text = "";
-            c6.Text = "";
 
             v1.Text = "";
             v2.Text = "";
             v3.Text = "";
             v4.Text = "";
             v5.Text = "";
-            v6.Text = "";
         }
 
-        Heap cola = new Heap();
-
-        private void obtenerTurnos()
+        private void actualizar()
         {
-
-            string cadena = "user id=db_a74adc_ads2021_admin;"
-            + "password=2021ads01;" + "Initial Catalog=db_a74adc_ads2021;"
-            + "Data source= SQL5068.site4now.net;";
-
-
-            SqlConnection conex1 = new SqlConnection(cadena);
-            SqlConnection conex = new SqlConnection(cadena);
-
-            string com = "select * from turno where estado=1";
-            string com2 = "update turno set estado=2 where id=@id;";
-
-            SqlDataReader rd;
-            conex.Open();
-            SqlCommand cmd = new SqlCommand(com, conex);
-
-            rd = cmd.ExecuteReader();
-
-            while (rd.Read())
+            try
             {
-                Turno turno = new Turno();
-                turno.peso = int.Parse(rd[1].ToString());
-                turno.numero = int.Parse(rd[0].ToString());       
-                
+                //Para Línea 1
+                if (lista[1].peso == 1)
+                {
+
+                }
             }
-            conex.Close();
+            catch
+            {
+
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
