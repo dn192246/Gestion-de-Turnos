@@ -159,8 +159,18 @@ namespace Gestion_de_Turnos
             {
 
             }
-        }
 
+            if (lista.Count > 6)
+            {
+                int max = lista.Count;
+
+                for(int i = 5; i <= max; i++)
+                {
+                    lista.RemoveAt(i);
+                }
+            }
+        }
+             
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Cerrar ventana?", "Confirmación",
