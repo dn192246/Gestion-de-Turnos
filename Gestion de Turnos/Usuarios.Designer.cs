@@ -29,15 +29,11 @@
 		private void InitializeComponent()
 		{
 			this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnAdd = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.rbCont = new System.Windows.Forms.RadioButton();
 			this.rbTran = new System.Windows.Forms.RadioButton();
-			this.txtApellido = new System.Windows.Forms.TextBox();
+			this.txtContra = new System.Windows.Forms.TextBox();
 			this.txtNombre = new System.Windows.Forms.TextBox();
 			this.txtUsuario = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
@@ -53,36 +49,11 @@
 			// 
 			this.dgvUsuarios.AllowUserToAddRows = false;
 			this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.Nombre,
-            this.Apellido,
-            this.Tipo});
 			this.dgvUsuarios.Location = new System.Drawing.Point(408, 39);
 			this.dgvUsuarios.Name = "dgvUsuarios";
 			this.dgvUsuarios.RowTemplate.Height = 24;
 			this.dgvUsuarios.Size = new System.Drawing.Size(510, 268);
 			this.dgvUsuarios.TabIndex = 36;
-			// 
-			// id
-			// 
-			this.id.HeaderText = "id";
-			this.id.Name = "id";
-			// 
-			// Nombre
-			// 
-			this.Nombre.HeaderText = "Nombre";
-			this.Nombre.Name = "Nombre";
-			// 
-			// Apellido
-			// 
-			this.Apellido.HeaderText = "Apellido";
-			this.Apellido.Name = "Apellido";
-			// 
-			// Tipo
-			// 
-			this.Tipo.HeaderText = "Tipo_Usuario";
-			this.Tipo.Name = "Tipo";
 			// 
 			// btnAdd
 			// 
@@ -127,12 +98,13 @@
 			this.rbTran.Text = "Transaccional";
 			this.rbTran.UseVisualStyleBackColor = true;
 			// 
-			// txtApellido
+			// txtContra
 			// 
-			this.txtApellido.Location = new System.Drawing.Point(190, 132);
-			this.txtApellido.Name = "txtApellido";
-			this.txtApellido.Size = new System.Drawing.Size(185, 22);
-			this.txtApellido.TabIndex = 33;
+			this.txtContra.Location = new System.Drawing.Point(190, 132);
+			this.txtContra.Name = "txtContra";
+			this.txtContra.PasswordChar = '*';
+			this.txtContra.Size = new System.Drawing.Size(185, 22);
+			this.txtContra.TabIndex = 33;
 			// 
 			// txtNombre
 			// 
@@ -151,11 +123,11 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(126, 135);
+			this.label3.Location = new System.Drawing.Point(103, 135);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(58, 17);
+			this.label3.Size = new System.Drawing.Size(81, 17);
 			this.label3.TabIndex = 30;
-			this.label3.Text = "Apellido";
+			this.label3.Text = "Contraseña";
 			// 
 			// label2
 			// 
@@ -194,6 +166,7 @@
 			this.btnEliminar.TabIndex = 37;
 			this.btnEliminar.Text = "Eliminar Usuario";
 			this.btnEliminar.UseVisualStyleBackColor = true;
+			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
 			// 
 			// Usuarios
 			// 
@@ -205,7 +178,7 @@
 			this.Controls.Add(this.dgvUsuarios);
 			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.txtApellido);
+			this.Controls.Add(this.txtContra);
 			this.Controls.Add(this.txtNombre);
 			this.Controls.Add(this.txtUsuario);
 			this.Controls.Add(this.label3);
@@ -225,15 +198,11 @@
 		#endregion
 
 		private System.Windows.Forms.DataGridView dgvUsuarios;
-		private System.Windows.Forms.DataGridViewTextBoxColumn id;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
 		private System.Windows.Forms.Button btnAdd;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.RadioButton rbCont;
 		private System.Windows.Forms.RadioButton rbTran;
-		private System.Windows.Forms.TextBox txtApellido;
+		private System.Windows.Forms.TextBox txtContra;
 		private System.Windows.Forms.TextBox txtNombre;
 		private System.Windows.Forms.TextBox txtUsuario;
 		private System.Windows.Forms.Label label3;

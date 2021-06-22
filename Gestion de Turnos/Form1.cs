@@ -40,5 +40,11 @@ namespace Gestion_de_Turnos
 			Clientes cl = new Clientes();
 			cl.Show();
 		}
+
+		private void btnUsuarios_Click(object sender, EventArgs e)
+		{
+			Usuarios usu = new Usuarios();
+			usu.Show();
+		}
 	}
 }

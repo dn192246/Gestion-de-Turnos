@@ -126,6 +126,7 @@ namespace Gestion_de_Turnos
 			this.btnUsuarios.TabIndex = 6;
 			this.btnUsuarios.Text = "Gestionar Usuarios";
 			this.btnUsuarios.UseVisualStyleBackColor = false;
+			this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
 			// 
 			// Form1
 			// 

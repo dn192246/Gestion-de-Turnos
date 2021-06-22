@@ -41,6 +41,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.btnEliminar = new System.Windows.Forms.Button();
 			this.btnActualizar = new System.Windows.Forms.Button();
+			this.mtxtDUI = new System.Windows.Forms.MaskedTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -180,11 +181,20 @@
 			this.btnActualizar.Text = "Actualizar Cliente";
 			this.btnActualizar.UseVisualStyleBackColor = true;
 			// 
+			// mtxtDUI
+			// 
+			this.mtxtDUI.Location = new System.Drawing.Point(534, 342);
+			this.mtxtDUI.Mask = "00000000-0";
+			this.mtxtDUI.Name = "mtxtDUI";
+			this.mtxtDUI.Size = new System.Drawing.Size(100, 22);
+			this.mtxtDUI.TabIndex = 30;
+			// 
 			// Clientes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(974, 395);
+			this.Controls.Add(this.mtxtDUI);
 			this.Controls.Add(this.btnActualizar);
 			this.Controls.Add(this.btnEliminar);
 			this.Controls.Add(this.dgvClientes);
@@ -222,5 +232,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnEliminar;
 		private System.Windows.Forms.Button btnActualizar;
+		private System.Windows.Forms.MaskedTextBox mtxtDUI;
 	}
 }
