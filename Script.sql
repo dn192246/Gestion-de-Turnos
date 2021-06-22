@@ -1,4 +1,4 @@
-drop table turno
+
 
 create table turno(
 id int identity(1,1) not null primary key,
