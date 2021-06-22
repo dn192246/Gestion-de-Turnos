@@ -166,7 +166,15 @@ namespace Gestion_de_Turnos
 
                 for(int i = 5; i < max; i++)
                 {
-                    lista.RemoveAt(i);
+                    if (i == 6)
+                    {
+                        
+                    }
+                    else
+                    {
+                        lista.RemoveAt(i);
+                    }
+                    
                 }
             }
         }
