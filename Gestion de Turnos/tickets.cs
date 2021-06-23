@@ -65,7 +65,7 @@ namespace Gestion_de_Turnos
 							{
 								cn.agregarTurno(Int32.Parse(drd[2].ToString()));
 								checar = 1;
-
+								
 
 							}
 							
@@ -78,8 +78,8 @@ namespace Gestion_de_Turnos
 						con.Close();
 						MessageBox.Show("Miembro no existente");
 					}
-					
-			
+					mtxtDUI.Text = "";
+
 				}
 				catch
 				{

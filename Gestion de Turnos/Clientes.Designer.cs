@@ -132,6 +132,7 @@
 			this.txtDui.Name = "txtDui";
 			this.txtDui.Size = new System.Drawing.Size(185, 22);
 			this.txtDui.TabIndex = 22;
+			this.txtDui.Visible = false;
 			this.txtDui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDui_KeyPress);
 			// 
 			// label3
@@ -182,6 +183,7 @@
 			this.btnActualizar.TabIndex = 29;
 			this.btnActualizar.Text = "Actualizar Cliente";
 			this.btnActualizar.UseVisualStyleBackColor = true;
+			this.btnActualizar.Visible = false;
 			this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
 			// 
 			// mtxtDUI

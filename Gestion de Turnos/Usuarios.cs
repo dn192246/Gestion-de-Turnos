@@ -111,6 +111,11 @@ namespace Gestion_de_Turnos
 			cmd.ExecuteNonQuery();
 			conx.Close();
 			actualizarGrid();
+			txtUsuario.Text = "";
+			txtContra.Text = "";
+			txtNombre.Text = "";
+			rbCont.Checked = false;
+			rbTran.Checked = false;
 		}
 
 		private void btnEliminar_Click(object sender, EventArgs e)

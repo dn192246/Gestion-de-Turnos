@@ -101,7 +101,7 @@ namespace Gestion_de_Turnos
 				MessageBox.Show("Seleccione el tipo de miembro que será el cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				conx.Close();
 				actualizarGrid();
-
+				
 				return;
 			}
 
@@ -109,7 +109,10 @@ namespace Gestion_de_Turnos
 			cmd.ExecuteNonQuery();
 				conx.Close();
 			actualizarGrid();
-
+			mtxtDUI.Text = "";
+			txtNombre.Text = "";
+			rbMiem.Checked = false;
+			rbPrio.Checked = false;
 
 		}
 
