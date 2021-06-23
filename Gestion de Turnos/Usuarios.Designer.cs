@@ -156,6 +156,7 @@
 			this.btnActualizar.TabIndex = 38;
 			this.btnActualizar.Text = "Actualizar Cliente";
 			this.btnActualizar.UseVisualStyleBackColor = true;
+			this.btnActualizar.Visible = false;
 			// 
 			// btnEliminar
 			// 

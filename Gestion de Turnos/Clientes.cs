@@ -57,7 +57,7 @@ namespace Gestion_de_Turnos
 				SqlDataReader drd = cmd2.ExecuteReader();
 				while (drd.Read())
 				{
-					if (drd["idmiembro"].ToString() == txtDui.Text)
+					if (drd["idmiembro"].ToString() == mtxtDUI.Text)
 					{
 						MessageBox.Show("El DUI ingresado ya existe");
 						drd.Close();
@@ -81,7 +81,7 @@ namespace Gestion_de_Turnos
 				SqlCommand cmd = new SqlCommand(com, conx);
 
 				cmd.Parameters.Add(new SqlParameter("@id", SqlDbType.VarChar));
-				cmd.Parameters["@id"].Value = txtDui.Text;
+				cmd.Parameters["@id"].Value = mtxtDUI.Text;
 
 				cmd.Parameters.Add(new SqlParameter("@nom", SqlDbType.VarChar));
 				cmd.Parameters["@nom"].Value = txtNombre.Text;
@@ -155,6 +155,16 @@ namespace Gestion_de_Turnos
 				if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
 					e.Handled = true;
 			}
+		}
+
+		private void btnActualizar_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(mtxtDUI.Text);
+		}
+
+		private void mtxtDUI_KeyPress(object sender, KeyPressEventArgs e)
+		{
+
 		}
 	}
 }

@@ -115,6 +115,7 @@
 			this.txtApellido.Name = "txtApellido";
 			this.txtApellido.Size = new System.Drawing.Size(185, 22);
 			this.txtApellido.TabIndex = 24;
+			this.txtApellido.Visible = false;
 			// 
 			// txtNombre
 			// 
@@ -126,7 +127,7 @@
 			// 
 			// txtDui
 			// 
-			this.txtDui.Location = new System.Drawing.Point(203, 29);
+			this.txtDui.Location = new System.Drawing.Point(492, 339);
 			this.txtDui.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtDui.Name = "txtDui";
 			this.txtDui.Size = new System.Drawing.Size(185, 22);
@@ -141,6 +142,7 @@
 			this.label3.Size = new System.Drawing.Size(58, 17);
 			this.label3.TabIndex = 21;
 			this.label3.Text = "Apellido";
+			this.label3.Visible = false;
 			// 
 			// label2
 			// 
@@ -180,14 +182,16 @@
 			this.btnActualizar.TabIndex = 29;
 			this.btnActualizar.Text = "Actualizar Cliente";
 			this.btnActualizar.UseVisualStyleBackColor = true;
+			this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
 			// 
 			// mtxtDUI
 			// 
-			this.mtxtDUI.Location = new System.Drawing.Point(534, 342);
+			this.mtxtDUI.Location = new System.Drawing.Point(203, 26);
 			this.mtxtDUI.Mask = "00000000-0";
 			this.mtxtDUI.Name = "mtxtDUI";
 			this.mtxtDUI.Size = new System.Drawing.Size(100, 22);
 			this.mtxtDUI.TabIndex = 30;
+			this.mtxtDUI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtDUI_KeyPress);
 			// 
 			// Clientes
 			// 
