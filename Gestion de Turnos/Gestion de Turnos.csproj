@@ -53,6 +53,7 @@
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="Encrypt.cs" />
     <Compile Include="GestionTickets.cs">
       <SubType>Form</SubType>
     </Compile>

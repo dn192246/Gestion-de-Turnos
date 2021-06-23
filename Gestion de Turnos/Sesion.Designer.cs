@@ -82,6 +82,7 @@
 			this.txtContra.PasswordChar = '*';
 			this.txtContra.Size = new System.Drawing.Size(186, 22);
 			this.txtContra.TabIndex = 13;
+			this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
 			// 
 			// txtUsuario
 			// 
@@ -89,6 +90,7 @@
 			this.txtUsuario.Name = "txtUsuario";
 			this.txtUsuario.Size = new System.Drawing.Size(186, 22);
 			this.txtUsuario.TabIndex = 12;
+			this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
 			// 
 			// Sesion
 			// 

@@ -30,6 +30,8 @@ namespace Gestion_de_Turnos
 			Conexion cn = new Conexion();
 			try
 			{
+				Aes256Base64Encrypter enc = new Aes256Base64Encrypter();
+
 				string cadena = cn.CadenaConexion();
 				string consulta = "SELECT * FROM Usuarios WHERE username = @id";
 				SqlConnection con = new SqlConnection(cadena);
@@ -42,7 +44,7 @@ namespace Gestion_de_Turnos
 				SqlDataReader drd = cmd.ExecuteReader();
 				while (drd.Read())
 				{
-					if(drd[0].ToString() != txtUsuario.Text || drd[2].ToString() != txtContra.Text)
+					if(drd[0].ToString() != txtUsuario.Text || drd[2].ToString() != enc.Encrypt(txtContra.Text, "215"))
 					{
 						MessageBox.Show("Usuario o contraseña erróneos. En caso de no recordar el acceso, contacte al administrador del sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 						drd.Close();
@@ -52,6 +54,7 @@ namespace Gestion_de_Turnos
 					else
 					{
 						Program.nivel = Int32.Parse(drd[3].ToString());
+						Program.usuario = drd[0].ToString();
 						MessageBox.Show("Bienvenido " + drd[1].ToString(), "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						drd.Close();
 						con.Close();
@@ -79,6 +82,22 @@ namespace Gestion_de_Turnos
 		private void Sesion_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)13)
+			{
+				btnInicio_Click(sender, e);
+			}
+		}
+
+		private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)13)
+			{
+				btnInicio_Click(sender, e);
+			}
 		}
 	}
 }

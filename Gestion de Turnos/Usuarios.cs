@@ -71,6 +71,7 @@ namespace Gestion_de_Turnos
 				MessageBox.Show("Error ");
 			}
 
+			Aes256Base64Encrypter enc = new Aes256Base64Encrypter();
 
 			SqlConnection conx = new SqlConnection(cadena);
 			string com = "insert into usuarios (username,nombre,contra, tipo) " +
@@ -85,7 +86,7 @@ namespace Gestion_de_Turnos
 			cmd.Parameters["@nom"].Value = txtNombre.Text;
 
 			cmd.Parameters.Add(new SqlParameter("@con", SqlDbType.VarChar));
-			cmd.Parameters["@con"].Value = txtContra.Text;
+			cmd.Parameters["@con"].Value = enc.Encrypt(txtContra.Text, "215");
 
 			if (rbCont.Checked == true)
 			{
@@ -114,10 +115,17 @@ namespace Gestion_de_Turnos
 
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
+			
 
 			if((string)dgvUsuarios[0, dgvUsuarios.CurrentRow.Index].Value == "admin")
 			{
-				MessageBox.Show("Usuario no puede ser eliminado");
+				MessageBox.Show("Usuario no puede ser eliminado", "Acción no autorizada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			if ((string)dgvUsuarios[0, dgvUsuarios.CurrentRow.Index].Value == Program.usuario)
+			{
+				MessageBox.Show("No se puede eliminar el usuario utilizado para iniciar sesión.", "Acción no autorizada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 

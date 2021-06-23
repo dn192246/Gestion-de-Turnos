@@ -10,6 +10,7 @@ namespace Gestion_de_Turnos
     {
 
 		public static int nivel = 0;
+		public static string usuario = "";
 		/// <summary>
 		/// Punto de entrada principal para la aplicación.
 		/// </summary>
