@@ -123,7 +123,7 @@ namespace Gestion_de_Turnos
 			string consulta = "DELETE FROM miembro WHERE idmiembro = @id";
 			SqlConnection con = new SqlConnection(cadena);
 			SqlCommand cmd = new SqlCommand(consulta, con);
-			cmd.Parameters.AddWithValue("@id", (Int32)dgvClientes[0, dgvClientes.CurrentRow.Index].Value);
+			cmd.Parameters.AddWithValue("@id", (string)dgvClientes[0, dgvClientes.CurrentRow.Index].Value);
 
 			try
 			{
